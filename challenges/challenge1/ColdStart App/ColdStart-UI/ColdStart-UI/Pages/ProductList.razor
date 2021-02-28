@@ -1,0 +1,93 @@
+﻿@inject HttpClient Http
+
+<section class="bg-white py-8">
+    <div class="container mx-auto flex flex-wrap pt-4 pb-12">
+        <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+            Our Ice Creams
+        </h1>
+        <div class="w-full mb-4">
+            <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+        </div>
+        @if (catalogs == null)
+        {
+            <p><em>Loading...</em></p>
+        }
+        else
+        {
+            @foreach (var catalog in catalogs)
+            {
+                <div class="w-full md:w-1/3 p-6 flex flex-col flex-shrink">
+                    <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+                        <div class="flex flex-wrap no-underline hover:no-underline">
+                            <div class="w-full font-bold text-xl text-gray-800 px-6">
+                                @catalog.Name
+                            </div>
+                            <p class="text-gray-800 text-base px-6 mb-5">
+                                @catalog.Description
+                            </p>
+                            <img class="h-60 ml-32 mr-3" src="@catalog.ImageUrl" alt="cold start logo" style="width: 128px;" />
+                        </div>
+                    </div>
+                    <Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
+                        <Authorized>
+                            <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+                                <div class="flex items-center justify-start">
+                                    <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+                                            @onclick="@(()=>PreOrderIceCreame(@catalog.Id, @context.User.Identity.Name))">
+                                        Pre-order Now
+                                    </button>
+                                </div>
+                            </div>
+                        </Authorized>
+                    </Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
+                </div>
+            }
+        }
+    </div>
+</section>
+
+@code {
+
+    private Catalog[] catalogs;
+
+    protected override async Task OnInitializedAsync()
+    {
+        catalogs = await Http.GetFromJsonAsync<Catalog[]>("api/catalogs");
+    }
+
+    public class Catalog
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string ImageUrl { get; set; }
+    }
+
+    private async Task PreOrderIceCreame(int icecreamId, string userName)
+    {
+        var order = new Order()
+        {
+            Id = Guid.NewGuid().ToString(),
+            User = userName,
+            Date = DateTime.Now,
+            IcecreamId = icecreamId,
+            Status = "New",
+            DriverId = null,
+            FullAddress = "1 Microsoft Way, Redmond, WA 98052, USA",
+            LastPosition = null
+        };
+         await Http.PostAsJsonAsync("/api/order", order);
+    }
+
+    public class Order
+    {
+        public string Id { get; set; }
+        public string User { get; set; }
+        public DateTime Date { get; set; }
+        public int IcecreamId { get; set; }
+        public string Status { get; set; }
+        public string DriverId { get; set; }
+        public string FullAddress { get; set; }
+        public string LastPosition { get; set; }
+    }
+}

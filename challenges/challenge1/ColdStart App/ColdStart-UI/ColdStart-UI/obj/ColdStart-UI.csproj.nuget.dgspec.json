@@ -1,0 +1,86 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\sumit.kharche\\source\\repos\\ColdStart App\\ColdStart-UI\\ColdStart-UI\\ColdStart-UI.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\sumit.kharche\\source\\repos\\ColdStart App\\ColdStart-UI\\ColdStart-UI\\ColdStart-UI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\sumit.kharche\\source\\repos\\ColdStart App\\ColdStart-UI\\ColdStart-UI\\ColdStart-UI.csproj",
+        "projectName": "ColdStart-UI",
+        "projectPath": "C:\\Users\\sumit.kharche\\source\\repos\\ColdStart App\\ColdStart-UI\\ColdStart-UI\\ColdStart-UI.csproj",
+        "packagesPath": "C:\\Users\\sumit.kharche\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sumit.kharche\\source\\repos\\ColdStart App\\ColdStart-UI\\ColdStart-UI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\sumit.kharche\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://coyote.pkgs.visualstudio.com/_packaging/Coyote.VSTS/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/hsol-opic/Feeds/_packaging/Default/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "AnthonyChu.AzureStaticWebApps.Blazor.Authentication": {
+              "target": "Package",
+              "version": "[0.0.2-preview, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.Build": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "System.Net.Http.Json": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
