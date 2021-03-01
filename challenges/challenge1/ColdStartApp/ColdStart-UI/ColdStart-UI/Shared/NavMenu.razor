@@ -8,17 +8,11 @@
         <div class="flex items-center w-auto mt-0 bg-transparent text-black p-0 z-20" id="nav-content">
             <Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
                 <Authorized>
-                    Hello, @context.User.Identity.Name!
-                    <a href="/.auth/logout?post_logout_redirect_uri=/">Log out</a>
-                </Authorized>
-                <NotAuthorized>
                     <div id="navAction"
-                            class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                        <a href="/.auth/login/github">
-                            Sign in with GitHub
-                        </a>
+                         class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                        <a href="/.auth/logout?post_logout_redirect_uri=/">Log out</a>
                     </div>
-                </NotAuthorized>
+                </Authorized>
             </Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
             
         </div>
