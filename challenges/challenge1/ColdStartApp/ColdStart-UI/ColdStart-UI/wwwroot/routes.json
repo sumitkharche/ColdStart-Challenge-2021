@@ -2,7 +2,7 @@
   "routes": [
     {
       "route": "/api/order",
-      "allowedRoles": [ "authenticated" ]
+      "allowedRoles": [ "anonymous" ]
     },
     {
       "route": "/*",
