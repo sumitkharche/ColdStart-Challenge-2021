@@ -14,7 +14,7 @@ namespace ColdStart_Api
     public static class SaveOrders
     {
         [FunctionName("SaveOrders")]
-        [return: Queue("icecreames-order-queue", Connection = "AzureWebJobsStorageQueueConnectionString")]
+        [return: Queue("icecreames-order-queue", Connection = "StorageQueueConnectionString")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "order")] HttpRequest req,
             ILogger log)
