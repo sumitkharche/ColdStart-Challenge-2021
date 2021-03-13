@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\My Projects\\ColdStart-Challenge-2021\\challenges\\challenge1\\ColdStartApp\\ColdStart-UI\\ColdStart-UI\\ColdStart-UI.csproj": {}
+    "C:\\My Projects\\ColdStart-Challenge-2021\\challenges\\challenge\\ColdStartApp\\ColdStart-UI\\ColdStart-UI\\ColdStart-UI.csproj": {}
   },
   "projects": {
-    "C:\\My Projects\\ColdStart-Challenge-2021\\challenges\\challenge1\\ColdStartApp\\ColdStart-UI\\ColdStart-UI\\ColdStart-UI.csproj": {
+    "C:\\My Projects\\ColdStart-Challenge-2021\\challenges\\challenge\\ColdStartApp\\ColdStart-UI\\ColdStart-UI\\ColdStart-UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\My Projects\\ColdStart-Challenge-2021\\challenges\\challenge1\\ColdStartApp\\ColdStart-UI\\ColdStart-UI\\ColdStart-UI.csproj",
+        "projectUniqueName": "C:\\My Projects\\ColdStart-Challenge-2021\\challenges\\challenge\\ColdStartApp\\ColdStart-UI\\ColdStart-UI\\ColdStart-UI.csproj",
         "projectName": "ColdStart-UI",
-        "projectPath": "C:\\My Projects\\ColdStart-Challenge-2021\\challenges\\challenge1\\ColdStartApp\\ColdStart-UI\\ColdStart-UI\\ColdStart-UI.csproj",
+        "projectPath": "C:\\My Projects\\ColdStart-Challenge-2021\\challenges\\challenge\\ColdStartApp\\ColdStart-UI\\ColdStart-UI\\ColdStart-UI.csproj",
         "packagesPath": "C:\\Users\\sumit.kharche\\.nuget\\packages\\",
-        "outputPath": "C:\\My Projects\\ColdStart-Challenge-2021\\challenges\\challenge1\\ColdStartApp\\ColdStart-UI\\ColdStart-UI\\obj\\",
+        "outputPath": "C:\\My Projects\\ColdStart-Challenge-2021\\challenges\\challenge\\ColdStartApp\\ColdStart-UI\\ColdStart-UI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sumit.kharche\\AppData\\Roaming\\NuGet\\NuGet.Config",

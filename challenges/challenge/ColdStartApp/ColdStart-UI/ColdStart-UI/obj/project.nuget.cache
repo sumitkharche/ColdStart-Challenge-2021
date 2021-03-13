@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5bTtrm0/qMk61UPahrx5CiZlMvzh73ULiILtbc2iGl5yCSVvyLffXzkEBOSkes06AcmjHzC4uLsZLuZMsQFt4w==",
+  "dgSpecHash": "EPEukS5UYcsuUvyNip4FZnBiK/oIhNTOBsJEUu6uV+EG5exlxQHwZuNLUH7U6U0OFOmqXDFlOFuVg8toDSchug==",
   "success": true,
-  "projectFilePath": "C:\\My Projects\\ColdStart-Challenge-2021\\challenges\\challenge1\\ColdStartApp\\ColdStart-UI\\ColdStart-UI\\ColdStart-UI.csproj",
+  "projectFilePath": "C:\\My Projects\\ColdStart-Challenge-2021\\challenges\\challenge\\ColdStartApp\\ColdStart-UI\\ColdStart-UI\\ColdStart-UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sumit.kharche\\.nuget\\packages\\anthonychu.azurestaticwebapps.blazor.authentication\\0.0.2-preview\\anthonychu.azurestaticwebapps.blazor.authentication.0.0.2-preview.nupkg.sha512",
     "C:\\Users\\sumit.kharche\\.nuget\\packages\\blazored.toast\\3.1.2\\blazored.toast.3.1.2.nupkg.sha512",
