@@ -8,27 +8,73 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System.Text;
+using ColdStart_Api.Models;
+using System.Data;
+using Dapper;
+using System.Net;
+using System.Data.SqlClient;
 
 namespace ColdStart_Api
 {
-    public static class SaveOrders
+    public  class SaveOrders
     {
         [FunctionName("SaveOrders")]
-        [return: Queue("icecreames-order-queue", Connection = "StorageQueueConnectionString")]
-        public static async Task<IActionResult> Run(
+        public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "order")] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
+            log.LogInformation("ProcessPreOrders requested");
             string body = string.Empty;
             using (var reader = new StreamReader(req.Body, Encoding.UTF8))
             {
                 body = await reader.ReadToEndAsync();
-                log.LogInformation($"Create Order Request: {body}");
+                log.LogInformation($"Create Pre-Order Request: {body}");
             }
-            log.LogInformation($"SaveOrders processed.");
 
-            return new OkObjectResult(body);
+            var preOrder = JsonConvert.DeserializeObject<Order>(body);
+            int result = 0;
+            if (preOrder == null)
+                return new BadRequestResult();
+
+            try
+            {
+                var sqlStatement = "INSERT INTO [dbo].[Orders] (Id, [User], Date, IcecreamId, Status, DriverId, FullAddress, LastPosition)" +
+                                                      "VALUES (@Id, @User, @Date, @IcecreamId, @Status, @DriverId, @FullAddress, @LastPosition)" +
+                                                      "SELECT @@identity";
+
+                var parameters = new
+                {
+                    preOrder.Id,
+                    preOrder.User,
+                    preOrder.Date,
+                    preOrder.IcecreamId,
+                    preOrder.Status,
+                    preOrder.DriverId,
+                    preOrder.FullAddress,
+                    preOrder.LastPosition
+                };
+
+                using var connection = GetDbConnectionAsync();
+                result = await connection.ExecuteScalarAsync<int>(sqlStatement, parameters, commandType: CommandType.Text).ConfigureAwait(false);
+
+                log.LogInformation($"Pre order is stored for user : {preOrder.User} and icecreamid: {preOrder.IcecreamId}");
+                return new OkObjectResult("Pre Order saved successfully");
+            }
+            catch (Exception ex)
+            {
+                log.LogError($"Failed to save Pre order." +
+                    $" Exception : {ex}");
+                return new ContentResult
+                {
+                    StatusCode = (int)HttpStatusCode.InternalServerError,
+                    Content = $"Error Occured while saving pre order for user: {preOrder.User} icecreamid: {preOrder.IcecreamId}"
+                };
+            }
+        }
+        public IDbConnection GetDbConnectionAsync()
+        {
+            var sqlConnection = new SqlConnection(Environment.GetEnvironmentVariable("DbConnectionString"));
+            return sqlConnection;
         }
     }
 }
