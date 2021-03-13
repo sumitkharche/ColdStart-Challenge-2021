@@ -1,14 +1,16 @@
 using System;
-using System.IO;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
+using ColdStart_Api.Models;
+using Dapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using System.Net.Http;
-using ColdStart_Api.Helpers;
 
 namespace ColdStart_Api
 {
@@ -27,10 +29,18 @@ namespace ColdStart_Api
         {
 
             log.LogInformation("C# HTTP trigger function processed a request.");
+            var query = "SELECT * FROM [dbo].[Icecreams]";
 
-            var catalogs = MockData.GetCatalogs();
+            using var connection = GetDbConnectionAsync();
+            var result = await connection.QueryAsync<Catalog>(query, commandType: CommandType.Text).ConfigureAwait(false);
+            var list = result.ToList();
+            return new OkObjectResult(list);
+        }
 
-            return new OkObjectResult(catalogs);
+        public IDbConnection GetDbConnectionAsync()
+        {
+            var sqlConnection = new SqlConnection(Environment.GetEnvironmentVariable("DbConnectionString"));
+            return sqlConnection;
         }
     }
 }

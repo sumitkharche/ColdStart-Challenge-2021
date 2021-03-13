@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using AzureStaticWebApps.Blazor.Authentication;
-
+using Blazored.Toast;
 
 namespace ColdStart_UI
 {
@@ -22,7 +22,8 @@ namespace ColdStart_UI
             var baseAddress = builder.Configuration["BaseAddress"] ?? builder.HostEnvironment.BaseAddress;
             builder.Services
                 .AddTransient(sp => new HttpClient { BaseAddress = new Uri(baseAddress) })
-                .AddStaticWebAppsAuthentication();
+                .AddStaticWebAppsAuthentication()
+                .AddBlazoredToast();
 
             await builder.Build().RunAsync();
         }

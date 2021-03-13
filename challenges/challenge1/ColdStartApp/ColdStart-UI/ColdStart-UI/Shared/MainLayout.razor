@@ -1,5 +1,9 @@
 ﻿@inherits LayoutComponentBase
+@using Blazored.Toast.Configuration
 
 <NavMenu />
 @Body
 
+<BlazoredToasts Position="ToastPosition.BottomRight"
+                Timeout="5"
+                ShowProgressBar="true" />

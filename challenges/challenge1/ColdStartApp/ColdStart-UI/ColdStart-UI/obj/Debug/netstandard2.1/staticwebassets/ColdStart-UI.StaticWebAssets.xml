@@ -1,3 +1,4 @@
 ﻿<StaticWebAssets Version="1.0">
-  <ContentRoot BasePath="/" Path="C:\Users\sumit.kharche\source\repos\ColdStart App\ColdStart-UI\ColdStart-UI\bin\Debug\netstandard2.1\wwwroot\" />
+  <ContentRoot BasePath="/" Path="C:\My Projects\ColdStart-Challenge-2021\challenges\challenge1\ColdStartApp\ColdStart-UI\ColdStart-UI\bin\Debug\netstandard2.1\wwwroot\" />
+  <ContentRoot BasePath="_content/Blazored.Toast" Path="C:\Users\sumit.kharche\.nuget\packages\blazored.toast\3.1.2\build\..\staticwebassets\" />
 </StaticWebAssets>
