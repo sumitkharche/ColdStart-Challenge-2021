@@ -1,6 +1,50 @@
 ﻿@inject HttpClient Http
 @inject IToastService toastService
 
+<section class="bg-white py-8">
+    <div class="container mx-auto flex flex-wrap pt-4 pb-12">
+        <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+            Our Recommendation
+        </h1>
+        <div class="w-full mb-4">
+            <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+        </div>
+        @if (recommendationDetails == null)
+        {
+            <p><em>Loading...</em></p>
+        }
+        else
+        {
+            <div class="w-full md:w-1/3 p-6 flex flex-col flex-shrink">
+                <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+                    <div class="flex flex-wrap no-underline hover:no-underline">
+                        <div class="w-full font-bold text-xl text-gray-800 px-6">
+                            @recommendedIceCream.Name
+                        </div>
+                        <p class="text-gray-800 text-base px-6 mb-5">
+                            @recommendedIceCream.Description
+                        </p>
+                        <img class="h-60 ml-32 mr-3" src="@recommendedIceCream.ImageUrl" alt="cold start logo" style="width: 128px;" />
+                    </div>
+                </div>
+                <Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
+                    <Authorized>
+                        <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+                            <div class="flex items-center justify-start">
+                                <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+                                        @onclick="@(()=>PreOrderIceCreame(@recommendedIceCream.Id, @context.User.Identity.Name, @recommendedIceCream.EventId, @recommendedIceCream.RewardActionId))">
+                                    Pre-order Now
+                                </button>
+                            </div>
+                        </div>
+                    </Authorized>
+                </Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
+            </div>
+        }
+    </div>
+</section>
+
+
 
 <section class="bg-white py-8">
     <div class="container mx-auto flex flex-wrap pt-4 pb-12">
@@ -35,7 +79,7 @@
                             <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
                                 <div class="flex items-center justify-start">
                                     <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-                                            @onclick="@(()=>PreOrderIceCreame(@catalog.Id, @context.User.Identity.Name))">
+                                            @onclick="@(()=>PreOrderIceCreame(@catalog.Id, @context.User.Identity.Name, catalog.EventId, catalog.RewardActionId))">
                                         Pre-order Now
                                     </button>
                                 </div>
@@ -51,10 +95,25 @@
 @code {
 
     private Catalog[] catalogs;
+    private RecommendationDetail recommendationDetails;
+    private Catalog recommendedIceCream = null;
 
     protected override async Task OnInitializedAsync()
     {
         catalogs = await Http.GetFromJsonAsync<Catalog[]>("api/catalogs");
+        if (catalogs != null && catalogs.Any())
+        {
+            recommendationDetails = await Http.GetFromJsonAsync<RecommendationDetail>("api/recommendation");
+            if(recommendationDetails != null && !string.IsNullOrWhiteSpace(recommendationDetails.RewardActionId))
+            {
+                recommendedIceCream = catalogs.Where(x => x.Id == Convert.ToInt32(recommendationDetails.RewardActionId)).FirstOrDefault();
+                foreach (var catalog in catalogs)
+                {
+                    catalog.EventId = recommendationDetails.EventId;
+                    catalog.RewardActionId = recommendationDetails.RewardActionId;
+                }
+            }
+        }
     }
 
     public class Catalog
@@ -63,9 +122,11 @@
         public string Name { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
+        public string EventId { get; set; }
+        public string RewardActionId { get; set; }
     }
 
-    private async Task PreOrderIceCreame(int icecreamId, string userName)
+    private async Task PreOrderIceCreame(int icecreamId, string userName, string eventId, string rewardActionId)
     {
         var order = new Order()
         {
@@ -76,7 +137,12 @@
             Status = "New",
             DriverId = null,
             FullAddress = "1 Microsoft Way, Redmond, WA 98052, USA",
-            LastPosition = null
+            LastPosition = null,
+            RecommendationDetails = new RecommendationDetail()
+            {
+                EventId = eventId,
+                RewardActionId = rewardActionId
+            }
         };
         var response = await Http.PostAsJsonAsync("/api/order", order);
         if (response.IsSuccessStatusCode)
@@ -89,6 +155,12 @@
         }
     }
 
+    public class RecommendationDetail
+    {
+        public string EventId { get; set; }
+        public string RewardActionId { get; set; }
+    }
+
     public class Order
     {
         public string Id { get; set; }
@@ -99,5 +171,7 @@
         public string DriverId { get; set; }
         public string FullAddress { get; set; }
         public string LastPosition { get; set; }
+        public RecommendationDetail RecommendationDetails { get; set; }
     }
+}
 }

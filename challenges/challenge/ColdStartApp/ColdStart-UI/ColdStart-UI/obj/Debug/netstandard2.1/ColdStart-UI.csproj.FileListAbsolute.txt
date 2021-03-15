@@ -1171,6 +1171,6 @@ C:\My Projects\ColdStart-Challenge-2021\challenges\challenge\ColdStartApp\ColdSt
 C:\My Projects\ColdStart-Challenge-2021\challenges\challenge\ColdStartApp\ColdStart-UI\ColdStart-UI\obj\Debug\netstandard2.1\staticwebassets\ColdStart-UI.StaticWebAssets.xml
 C:\My Projects\ColdStart-Challenge-2021\challenges\challenge\ColdStartApp\ColdStart-UI\ColdStart-UI\obj\Debug\netstandard2.1\ColdStart-UI.dll
 C:\My Projects\ColdStart-Challenge-2021\challenges\challenge\ColdStartApp\ColdStart-UI\ColdStart-UI\obj\Debug\netstandard2.1\ColdStart-UI.pdb
-C:\My Projects\ColdStart-Challenge-2021\challenges\challenge\ColdStartApp\ColdStart-UI\ColdStart-UI\obj\Debug\netstandard2.1\integrity\ENYZqE8OQXhrPBtScnFi2KfXO6j1cT1B3TBWT_ohY3A=.hash
-C:\My Projects\ColdStart-Challenge-2021\challenges\challenge\ColdStartApp\ColdStart-UI\ColdStart-UI\obj\Debug\netstandard2.1\integrity\Eck8VW6KwhCYKL1IMc4qMNXeo5p0h-qPsqVA0S8b_bs=.hash
-C:\My Projects\ColdStart-Challenge-2021\challenges\challenge\ColdStartApp\ColdStart-UI\ColdStart-UI\obj\Debug\netstandard2.1\integrity\-95UH3QVUngMiX-_IBT6OAHceSRP-rkSo5oypGWo_B8=.hash
+C:\My Projects\ColdStart-Challenge-2021\challenges\challenge\ColdStartApp\ColdStart-UI\ColdStart-UI\obj\Debug\netstandard2.1\integrity\E_-x58DgI65hD8FiKYJG9HKKMEdVXRnjSebyG7FsJME=.hash
+C:\My Projects\ColdStart-Challenge-2021\challenges\challenge\ColdStartApp\ColdStart-UI\ColdStart-UI\obj\Debug\netstandard2.1\integrity\10UUbkVs0zglSTS9q84syXoatJGmKUnS4BY2eiQKKOs=.hash
+C:\My Projects\ColdStart-Challenge-2021\challenges\challenge\ColdStartApp\ColdStart-UI\ColdStart-UI\obj\Debug\netstandard2.1\integrity\U93E8xFVlN9R-bWFQp4AjJFZ_HAD7YaI8ljR7b5cN80=.hash

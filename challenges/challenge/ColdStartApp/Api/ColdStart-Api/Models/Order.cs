@@ -14,5 +14,6 @@ namespace ColdStart_Api.Models
         public string DriverId { get; set; }
         public string FullAddress { get; set; }
         public string LastPosition { get; set; }
+        public RecommendationDetail RecommendationDetails { get; set; }
     }
 }

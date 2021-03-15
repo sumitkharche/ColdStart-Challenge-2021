@@ -8,7 +8,7 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
-      "ColdStart-UI.dll": "sha256-ENYZqE8OQXhrPBtScnFi2KfXO6j1cT1B3TBWT+ohY3A=",
+      "ColdStart-UI.dll": "sha256-E+\/x58DgI65hD8FiKYJG9HKKMEdVXRnjSebyG7FsJME=",
       "System.Text.Json.dll": "sha256-HQeN+ZfHAERO+uW0fP0J9J3WV1hQ3vUIOWbqGSYBPp8=",
       "System.Runtime.CompilerServices.Unsafe.dll": "sha256-kL\/omZDwqByAi+lPdMeDmr3XjHcn4RVb+LmZ4mut1Yc=",
       "mscorlib.dll": "sha256-BaZPMj95+YNe3G4ckTGD6szZFwZeA2MOHn91zTGKDeU=",
@@ -68,7 +68,7 @@
       "Blazored.Toast.dll": "sha256-SnlpX7tqR4Or48+LUVR7CMv3xLhjy1JBnmDfQCb2GwM="
     },
     "pdb": {
-      "ColdStart-UI.pdb": "sha256-Eck8VW6KwhCYKL1IMc4qMNXeo5p0h\/qPsqVA0S8b+bs="
+      "ColdStart-UI.pdb": "sha256-10UUbkVs0zglSTS9q84syXoatJGmKUnS4BY2eiQKKOs="
     },
     "runtime": {
       "dotnet.3.2.0.js": "sha256-mPoqx7XczFHBWk3gRNn0hc9ekG1OvkKY4XiKRY5Mj5U=",

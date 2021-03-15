@@ -1,7 +1,7 @@
 {
   "FilesToCompress": [
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\ENYZqE8OQXhrPBtScnFi2KfXO6j1cT1B3TBWT_ohY3A=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\E_-x58DgI65hD8FiKYJG9HKKMEdVXRnjSebyG7FsJME=.hash",
       "Source": "C:\\My Projects\\ColdStart-Challenge-2021\\challenges\\challenge\\ColdStartApp\\ColdStart-UI\\ColdStart-UI\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\ColdStart-UI.dll",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/ColdStart-UI.dll.gz"
     },
@@ -291,7 +291,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Blazored.Toast.dll.gz"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\Eck8VW6KwhCYKL1IMc4qMNXeo5p0h-qPsqVA0S8b_bs=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\10UUbkVs0zglSTS9q84syXoatJGmKUnS4BY2eiQKKOs=.hash",
       "Source": "C:\\My Projects\\ColdStart-Challenge-2021\\challenges\\challenge\\ColdStartApp\\ColdStart-UI\\ColdStart-UI\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\ColdStart-UI.pdb",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/ColdStart-UI.pdb.gz"
     },
@@ -316,7 +316,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.webassembly.js.gz"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\-95UH3QVUngMiX-_IBT6OAHceSRP-rkSo5oypGWo_B8=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\U93E8xFVlN9R-bWFQp4AjJFZ_HAD7YaI8ljR7b5cN80=.hash",
       "Source": "C:\\My Projects\\ColdStart-Challenge-2021\\challenges\\challenge\\ColdStartApp\\ColdStart-UI\\ColdStart-UI\\obj\\Debug\\netstandard2.1\\blazor\\blazor.boot.json",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.boot.json.gz"
     }

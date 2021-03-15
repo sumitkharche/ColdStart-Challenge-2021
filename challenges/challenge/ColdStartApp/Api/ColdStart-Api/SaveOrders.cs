@@ -13,6 +13,8 @@ using System.Data;
 using Dapper;
 using System.Net;
 using System.Data.SqlClient;
+using Microsoft.Azure.CognitiveServices.Personalizer;
+using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 
 namespace ColdStart_Api
 {
@@ -58,6 +60,12 @@ namespace ColdStart_Api
                 result = await connection.ExecuteScalarAsync<int>(sqlStatement, parameters, commandType: CommandType.Text).ConfigureAwait(false);
 
                 log.LogInformation($"Pre order is stored for user : {preOrder.User} and icecreamid: {preOrder.IcecreamId}");
+
+                int reward = 1;
+                var client = InitializePersonalizerClient();
+                reward = preOrder.IcecreamId == Convert.ToInt32(preOrder.RecommendationDetails.RewardActionId) ? 1 : 0;
+                client.Reward(preOrder.RecommendationDetails.EventId, new RewardRequest(reward));
+
                 return new OkObjectResult("Pre Order saved successfully");
             }
             catch (Exception ex)
@@ -76,5 +84,15 @@ namespace ColdStart_Api
             var sqlConnection = new SqlConnection(Environment.GetEnvironmentVariable("DbConnectionString"));
             return sqlConnection;
         }
+        public PersonalizerClient InitializePersonalizerClient()
+        {
+            PersonalizerClient client = new PersonalizerClient(
+                new ApiKeyServiceClientCredentials(Environment.GetEnvironmentVariable("PersonalizerApiKey")))
+            { Endpoint = Environment.GetEnvironmentVariable("PersonalizerServiceEndpoint") };
+
+            return client;
+        }
+
+
     }
 }
